@@ -1,0 +1,2160 @@
+{
+	"info": {
+		"_postman_id": "f246d093-ba62-4482-a792-88be1d112b58",
+		"name": "ElSolNEC",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36455729"
+	},
+	"item": [
+		{
+			"name": "api",
+			"item": [
+				{
+					"name": "Product",
+					"item": [
+						{
+							"name": "GetProductsAll",
+							"item": [
+								{
+									"name": "/api/Product/GetProductsAll",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/Product/GetProductsAll",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Product",
+												"GetProductsAll"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "200 OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/Product/GetProductsAll",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Product",
+														"GetProductsAll"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Server",
+													"value": "Microsoft-IIS/10.0"
+												},
+												{
+													"key": "X-Powered-By",
+													"value": "ASP.NET"
+												},
+												{
+													"key": "Date",
+													"value": "Tue, 01 Apr 2025 19:07:37 GMT"
+												}
+											],
+											"cookie": [],
+											"body": "[\n    {\n        \"productId\": 1,\n        \"productName\": \"Producto 2\",\n        \"inventory\": 20,\n        \"price\": 2200\n    }\n]"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "GetProductByProductId",
+							"item": [
+								{
+									"name": "/api/Product/GetProductByProductId/:productId",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/Product/GetProductByProductId/:productId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Product",
+												"GetProductByProductId",
+												":productId"
+											],
+											"variable": [
+												{
+													"key": "productId",
+													"value": "2"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "200 OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/Product/GetProductByProductId/:productId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Product",
+														"GetProductByProductId",
+														":productId"
+													],
+													"variable": [
+														{
+															"key": "productId",
+															"value": "1"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Server",
+													"value": "Microsoft-IIS/10.0"
+												},
+												{
+													"key": "X-Powered-By",
+													"value": "ASP.NET"
+												},
+												{
+													"key": "Date",
+													"value": "Tue, 01 Apr 2025 19:08:04 GMT"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"productId\": 1,\n    \"productName\": \"Producto 2\",\n    \"inventory\": 20,\n    \"price\": 2200\n}"
+										},
+										{
+											"name": "400 Bad Request",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/Product/GetProductByProductId/:productId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Product",
+														"GetProductByProductId",
+														":productId"
+													],
+													"variable": [
+														{
+															"key": "productId",
+															"value": "2"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Server",
+													"value": "Microsoft-IIS/10.0"
+												},
+												{
+													"key": "X-Powered-By",
+													"value": "ASP.NET"
+												},
+												{
+													"key": "Date",
+													"value": "Tue, 01 Apr 2025 19:08:23 GMT"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"message\": \"El producto con ID 2 no existe.\"\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "CreateProducts",
+							"item": [
+								{
+									"name": "/api/Product/CreateProducts",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"productName\": \"Producto 1\",\n  \"inventory\": 20,\n  \"price\": 3500\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Product/CreateProducts",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Product",
+												"CreateProducts"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "201 Created",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"productName\": \"Producto 1\",\n  \"inventory\": 20,\n  \"price\": 3500\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/Product/CreateProducts",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Product",
+														"CreateProducts"
+													]
+												}
+											},
+											"status": "Created",
+											"code": 201,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Location",
+													"value": "Product/1"
+												},
+												{
+													"key": "Server",
+													"value": "Microsoft-IIS/10.0"
+												},
+												{
+													"key": "X-Powered-By",
+													"value": "ASP.NET"
+												},
+												{
+													"key": "Date",
+													"value": "Tue, 01 Apr 2025 19:03:34 GMT"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"productId\": 1,\n    \"productName\": \"Producto 1\",\n    \"inventory\": 20,\n    \"price\": 3500\n}"
+										},
+										{
+											"name": "400 Bad Request Duplicado",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"productName\": \"Producto 1\",\n  \"inventory\": 20,\n  \"price\": 3500\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/Product/CreateProducts",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Product",
+														"CreateProducts"
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Server",
+													"value": "Microsoft-IIS/10.0"
+												},
+												{
+													"key": "X-Powered-By",
+													"value": "ASP.NET"
+												},
+												{
+													"key": "Date",
+													"value": "Tue, 01 Apr 2025 19:04:56 GMT"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"message\": \"Ya existe un producto con el nombre 'Producto 1'.\"\n}"
+										},
+										{
+											"name": "400 Bad Request Sin data",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"productName\": \"\",\n  \"inventory\": 20,\n  \"price\": 3500\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/Product/CreateProducts",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Product",
+														"CreateProducts"
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/problem+json; charset=utf-8"
+												},
+												{
+													"key": "Server",
+													"value": "Microsoft-IIS/10.0"
+												},
+												{
+													"key": "X-Powered-By",
+													"value": "ASP.NET"
+												},
+												{
+													"key": "Date",
+													"value": "Tue, 01 Apr 2025 19:05:17 GMT"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\n    \"title\": \"One or more validation errors occurred.\",\n    \"status\": 400,\n    \"errors\": {\n        \"ProductName\": [\n            \"The ProductName field is required.\"\n        ]\n    },\n    \"traceId\": \"00-39b41025a6cbd087b10cc3449c6709f6-9b5d773082b29c86-00\"\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "UpdateProducts",
+							"item": [
+								{
+									"name": "/api/Product/UpdateProducts",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"productId\": \"<integer>\",\n  \"productName\": \"<string>\",\n  \"inventory\": \"<integer>\",\n  \"price\": \"<integer>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Product/UpdateProducts",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Product",
+												"UpdateProducts"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "200 OK",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"productId\": 1,\n  \"productName\": \"Producto 2\",\n  \"inventory\": 20,\n  \"price\": 2200\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/Product/UpdateProducts",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Product",
+														"UpdateProducts"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Server",
+													"value": "Microsoft-IIS/10.0"
+												},
+												{
+													"key": "X-Powered-By",
+													"value": "ASP.NET"
+												},
+												{
+													"key": "Date",
+													"value": "Tue, 01 Apr 2025 19:06:12 GMT"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"productId\": 1,\n    \"productName\": \"Producto 2\",\n    \"inventory\": 20,\n    \"price\": 2200\n}"
+										},
+										{
+											"name": "400 Bad Request",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"productId\": 2,\n  \"productName\": \"Producto 2\",\n  \"inventory\": 20,\n  \"price\": 2200\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/Product/UpdateProducts",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Product",
+														"UpdateProducts"
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Server",
+													"value": "Microsoft-IIS/10.0"
+												},
+												{
+													"key": "X-Powered-By",
+													"value": "ASP.NET"
+												},
+												{
+													"key": "Date",
+													"value": "Tue, 01 Apr 2025 19:07:09 GMT"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"message\": \"El producto con ID 2 no existe.\"\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "DeleteProducts",
+							"item": [
+								{
+									"name": "/api/Product/DeleteProducts",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": 0\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Product/DeleteProducts",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Product",
+												"DeleteProducts"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "400 Bad Request",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"id\": 2\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/Product/DeleteProducts",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Product",
+														"DeleteProducts"
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Server",
+													"value": "Microsoft-IIS/10.0"
+												},
+												{
+													"key": "X-Powered-By",
+													"value": "ASP.NET"
+												},
+												{
+													"key": "Date",
+													"value": "Tue, 01 Apr 2025 19:09:00 GMT"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"message\": \"El producto con ID 2 no existe.\"\n}"
+										},
+										{
+											"name": "200 OK",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"id\": 1\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/Product/DeleteProducts",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Product",
+														"DeleteProducts"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "plain",
+											"header": [
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Server",
+													"value": "Microsoft-IIS/10.0"
+												},
+												{
+													"key": "X-Powered-By",
+													"value": "ASP.NET"
+												},
+												{
+													"key": "Date",
+													"value": "Tue, 01 Apr 2025 19:09:18 GMT"
+												}
+											],
+											"cookie": [],
+											"body": null
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Transaction",
+					"item": [
+						{
+							"name": "GetTransactionsAll",
+							"item": [
+								{
+									"name": "/api/Transaction/GetTransactionsAll",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/Transaction/GetTransactionsAll",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Transaction",
+												"GetTransactionsAll"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "200 OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/Transaction/GetTransactionsAll",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Transaction",
+														"GetTransactionsAll"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Server",
+													"value": "Microsoft-IIS/10.0"
+												},
+												{
+													"key": "X-Powered-By",
+													"value": "ASP.NET"
+												},
+												{
+													"key": "Date",
+													"value": "Tue, 01 Apr 2025 19:28:20 GMT"
+												}
+											],
+											"cookie": [],
+											"body": "[\n    {\n        \"transactionId\": 1,\n        \"product\": {\n            \"productId\": 2,\n            \"productName\": \"Producto 1\",\n            \"inventory\": 8,\n            \"price\": 3500\n        },\n        \"user\": {\n            \"userId\": 1,\n            \"userName\": \"Andres\",\n            \"email\": \"prueba2\",\n            \"password\": \"asdfg123\",\n            \"roles\": [\n                {\n                    \"roleId\": 1,\n                    \"rolName\": \"Admin\"\n                }\n            ]\n        },\n        \"quantity\": 12,\n        \"transactionDate\": \"2025-04-01T19:27:48.210188\"\n    }\n]"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "GetTransactionsByProduct",
+							"item": [
+								{
+									"name": "/api/Transaction/GetTransactionsByProduct/:productId",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/Transaction/GetTransactionsByProduct/:productId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Transaction",
+												"GetTransactionsByProduct",
+												":productId"
+											],
+											"variable": [
+												{
+													"key": "productId",
+													"value": "",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "200 OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/Transaction/GetTransactionsByProduct/:productId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Transaction",
+														"GetTransactionsByProduct",
+														":productId"
+													],
+													"variable": [
+														{
+															"key": "productId",
+															"value": "2",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Server",
+													"value": "Microsoft-IIS/10.0"
+												},
+												{
+													"key": "X-Powered-By",
+													"value": "ASP.NET"
+												},
+												{
+													"key": "Date",
+													"value": "Tue, 01 Apr 2025 19:29:02 GMT"
+												}
+											],
+											"cookie": [],
+											"body": "[\n    {\n        \"transactionId\": 1,\n        \"product\": {\n            \"productId\": 2,\n            \"productName\": \"Producto 1\",\n            \"inventory\": 8,\n            \"price\": 3500\n        },\n        \"user\": {\n            \"userId\": 1,\n            \"userName\": \"Andres\",\n            \"email\": \"prueba2\",\n            \"password\": \"asdfg123\",\n            \"roles\": [\n                {\n                    \"roleId\": 1,\n                    \"rolName\": \"Admin\"\n                }\n            ]\n        },\n        \"quantity\": 12,\n        \"transactionDate\": \"2025-04-01T19:27:48.210188\"\n    }\n]"
+										},
+										{
+											"name": "400 Bad Request",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/Transaction/GetTransactionsByProduct/:productId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Transaction",
+														"GetTransactionsByProduct",
+														":productId"
+													],
+													"variable": [
+														{
+															"key": "productId",
+															"value": "1",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Server",
+													"value": "Microsoft-IIS/10.0"
+												},
+												{
+													"key": "X-Powered-By",
+													"value": "ASP.NET"
+												},
+												{
+													"key": "Date",
+													"value": "Tue, 01 Apr 2025 19:29:32 GMT"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"message\": \"El producto con ID 1 no existe.\"\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "GetTransactionsByUserID",
+							"item": [
+								{
+									"name": "/api/Transaction/GetTransactionsByUserID/:userId",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/Transaction/GetTransactionsByUserID/:userId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Transaction",
+												"GetTransactionsByUserID",
+												":userId"
+											],
+											"variable": [
+												{
+													"key": "userId",
+													"value": "",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "200 OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/Transaction/GetTransactionsByUserID/:userId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Transaction",
+														"GetTransactionsByUserID",
+														":userId"
+													],
+													"variable": [
+														{
+															"key": "userId",
+															"value": "1",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Server",
+													"value": "Microsoft-IIS/10.0"
+												},
+												{
+													"key": "X-Powered-By",
+													"value": "ASP.NET"
+												},
+												{
+													"key": "Date",
+													"value": "Tue, 01 Apr 2025 19:30:01 GMT"
+												}
+											],
+											"cookie": [],
+											"body": "[\n    {\n        \"transactionId\": 1,\n        \"product\": {\n            \"productId\": 2,\n            \"productName\": \"Producto 1\",\n            \"inventory\": 8,\n            \"price\": 3500\n        },\n        \"user\": {\n            \"userId\": 1,\n            \"userName\": \"Andres\",\n            \"email\": \"prueba2\",\n            \"password\": \"asdfg123\",\n            \"roles\": [\n                {\n                    \"roleId\": 1,\n                    \"rolName\": \"Admin\"\n                }\n            ]\n        },\n        \"quantity\": 12,\n        \"transactionDate\": \"2025-04-01T19:27:48.210188\"\n    }\n]"
+										},
+										{
+											"name": "400 Bad Request",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/Transaction/GetTransactionsByUserID/:userId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Transaction",
+														"GetTransactionsByUserID",
+														":userId"
+													],
+													"variable": [
+														{
+															"key": "userId",
+															"value": "2",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Server",
+													"value": "Microsoft-IIS/10.0"
+												},
+												{
+													"key": "X-Powered-By",
+													"value": "ASP.NET"
+												},
+												{
+													"key": "Date",
+													"value": "Tue, 01 Apr 2025 19:30:20 GMT"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"message\": \"El usuario con ID 2 no existe.\"\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "RegisterTransaction",
+							"item": [
+								{
+									"name": "/api/Transaction/RegisterTransaction",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"productId\": \"<integer>\",\n  \"userId\": \"<integer>\",\n  \"quantity\": \"<integer>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Transaction/RegisterTransaction",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Transaction",
+												"RegisterTransaction"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "201 Created",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"productId\": \"2\",\n  \"userId\": \"1\",\n  \"quantity\": \"12\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/Transaction/RegisterTransaction",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Transaction",
+														"RegisterTransaction"
+													]
+												}
+											},
+											"status": "Created",
+											"code": 201,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Location",
+													"value": "User/1"
+												},
+												{
+													"key": "Server",
+													"value": "Microsoft-IIS/10.0"
+												},
+												{
+													"key": "X-Powered-By",
+													"value": "ASP.NET"
+												},
+												{
+													"key": "Date",
+													"value": "Tue, 01 Apr 2025 19:27:48 GMT"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"transactionId\": 1,\n    \"product\": {\n        \"productId\": 2,\n        \"productName\": \"Producto 1\",\n        \"inventory\": 8,\n        \"price\": 3500\n    },\n    \"user\": {\n        \"userId\": 1,\n        \"userName\": \"Andres\",\n        \"email\": \"prueba2\",\n        \"password\": \"asdfg123\",\n        \"roles\": [\n            {\n                \"roleId\": 1,\n                \"rolName\": \"Admin\"\n            }\n        ]\n    },\n    \"quantity\": 12,\n    \"transactionDate\": \"2025-04-01T19:27:48.210188\"\n}"
+										},
+										{
+											"name": "400 Bad Request Error data",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"productId\": \"4\",\n  \"userId\": \"1\",\n  \"quantity\": \"12\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/Transaction/RegisterTransaction",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Transaction",
+														"RegisterTransaction"
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Server",
+													"value": "Microsoft-IIS/10.0"
+												},
+												{
+													"key": "X-Powered-By",
+													"value": "ASP.NET"
+												},
+												{
+													"key": "Date",
+													"value": "Tue, 01 Apr 2025 19:30:43 GMT"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"message\": \"El producto con ID 4 no existe.\"\n}"
+										},
+										{
+											"name": "400 Bad Request Sin data",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"productId\": \"\",\n  \"userId\": \"\",\n  \"quantity\": \"12\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/Transaction/RegisterTransaction",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Transaction",
+														"RegisterTransaction"
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/problem+json; charset=utf-8"
+												},
+												{
+													"key": "Server",
+													"value": "Microsoft-IIS/10.0"
+												},
+												{
+													"key": "X-Powered-By",
+													"value": "ASP.NET"
+												},
+												{
+													"key": "Date",
+													"value": "Tue, 01 Apr 2025 19:31:00 GMT"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\n    \"title\": \"One or more validation errors occurred.\",\n    \"status\": 400,\n    \"errors\": {\n        \"command\": [\n            \"The command field is required.\"\n        ],\n        \"$.productId\": [\n            \"The JSON value could not be converted to ElSolNEC.Application.Transactions.Command.CreateTransactionCommand. Path: $.productId | LineNumber: 1 | BytePositionInLine: 17.\"\n        ]\n    },\n    \"traceId\": \"00-ece4c809eea408ac47d7dff59864dbbd-7f72bdf53439e514-00\"\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "DeleteTransaction",
+							"item": [
+								{
+									"name": "/api/Transaction/DeleteTransaction",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"transactionId\": \"<integer>\",\n  \"userId\": \"<integer>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Transaction/DeleteTransaction",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Transaction",
+												"DeleteTransaction"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "400 Bad Request Error data",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"transactionId\": \"1\",\n  \"userId\": \"\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/Transaction/DeleteTransaction",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Transaction",
+														"DeleteTransaction"
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/problem+json; charset=utf-8"
+												},
+												{
+													"key": "Server",
+													"value": "Microsoft-IIS/10.0"
+												},
+												{
+													"key": "X-Powered-By",
+													"value": "ASP.NET"
+												},
+												{
+													"key": "Date",
+													"value": "Tue, 01 Apr 2025 19:32:20 GMT"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\n    \"title\": \"One or more validation errors occurred.\",\n    \"status\": 400,\n    \"errors\": {\n        \"command\": [\n            \"The command field is required.\"\n        ],\n        \"$.userId\": [\n            \"The JSON value could not be converted to ElSolNEC.Application.Transactions.Command.DeleteTransactionCommand. Path: $.userId | LineNumber: 2 | BytePositionInLine: 14.\"\n        ]\n    },\n    \"traceId\": \"00-d15228756da67166c4601f3af8e926b5-4d32f0e507db447a-00\"\n}"
+										},
+										{
+											"name": "400 Bad Request Error usuario",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"transactionId\": \"1\",\n  \"userId\": \"5\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/Transaction/DeleteTransaction",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Transaction",
+														"DeleteTransaction"
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Server",
+													"value": "Microsoft-IIS/10.0"
+												},
+												{
+													"key": "X-Powered-By",
+													"value": "ASP.NET"
+												},
+												{
+													"key": "Date",
+													"value": "Tue, 01 Apr 2025 19:32:46 GMT"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"message\": \"El usuario con ID 5 no existe.\"\n}"
+										},
+										{
+											"name": "200 OK",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"transactionId\": \"1\",\n  \"userId\": \"1\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/Transaction/DeleteTransaction",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Transaction",
+														"DeleteTransaction"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "plain",
+											"header": [
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Server",
+													"value": "Microsoft-IIS/10.0"
+												},
+												{
+													"key": "X-Powered-By",
+													"value": "ASP.NET"
+												},
+												{
+													"key": "Date",
+													"value": "Tue, 01 Apr 2025 19:33:23 GMT"
+												}
+											],
+											"cookie": [],
+											"body": null
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "User",
+					"item": [
+						{
+							"name": "GetUsersAll",
+							"item": [
+								{
+									"name": "/api/User/GetUsersAll",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/User/GetUsersAll",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"User",
+												"GetUsersAll"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "200 OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/User/GetUsersAll",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"User",
+														"GetUsersAll"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Server",
+													"value": "Microsoft-IIS/10.0"
+												},
+												{
+													"key": "X-Powered-By",
+													"value": "ASP.NET"
+												},
+												{
+													"key": "Date",
+													"value": "Tue, 01 Apr 2025 19:01:21 GMT"
+												}
+											],
+											"cookie": [],
+											"body": "[\n    {\n        \"userId\": 1,\n        \"userName\": \"Andres\",\n        \"email\": \"prueba2\",\n        \"password\": \"asdfg123\",\n        \"roles\": [\n            {\n                \"roleId\": 1,\n                \"rolName\": \"Admin\"\n            }\n        ]\n    }\n]"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "GetUserByUserId",
+							"item": [
+								{
+									"name": "/api/User/GetUserByUserId/:userId",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/User/GetUserByUserId/:userId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"User",
+												"GetUserByUserId",
+												":userId"
+											],
+											"variable": [
+												{
+													"key": "userId",
+													"value": ""
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "200 OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/User/GetUserByUserId/:userId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"User",
+														"GetUserByUserId",
+														":userId"
+													],
+													"variable": [
+														{
+															"key": "userId",
+															"value": "1"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Server",
+													"value": "Microsoft-IIS/10.0"
+												},
+												{
+													"key": "X-Powered-By",
+													"value": "ASP.NET"
+												},
+												{
+													"key": "Date",
+													"value": "Tue, 01 Apr 2025 18:59:22 GMT"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"userId\": 1,\n    \"userName\": \"Andres\",\n    \"email\": \"prueba2\",\n    \"password\": \"asdfg123\",\n    \"roles\": [\n        {\n            \"roleId\": 1,\n            \"rolName\": \"Admin\"\n        }\n    ]\n}"
+										},
+										{
+											"name": "400 Bad Request",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/User/GetUserByUserId/:userId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"User",
+														"GetUserByUserId",
+														":userId"
+													],
+													"variable": [
+														{
+															"key": "userId",
+															"value": "2"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Server",
+													"value": "Microsoft-IIS/10.0"
+												},
+												{
+													"key": "X-Powered-By",
+													"value": "ASP.NET"
+												},
+												{
+													"key": "Date",
+													"value": "Tue, 01 Apr 2025 19:00:51 GMT"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"message\": \"El usuario con ID 2 no existe.\"\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "CreateUser",
+							"item": [
+								{
+									"name": "/api/User/CreateUser",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"userName\": \"string\",\n  \"email\": \"string\",\n  \"passwordHash\": \"string\",\n  \"roles\": [\n    \"string\"\n  ]\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/User/CreateUser",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"User",
+												"CreateUser"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "201 Created",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"userName\": \"Cristhian\",\n  \"email\": \"prueba@prueba.com\",\n  \"passwordHash\": \"qwerty1234\",\n  \"roles\": [\"Admin\", \"Supervisor\", \"Cashier\", \"Viewer\"]\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/User/CreateUser",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"User",
+														"CreateUser"
+													]
+												}
+											},
+											"status": "Created",
+											"code": 201,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Location",
+													"value": "User/1"
+												},
+												{
+													"key": "Server",
+													"value": "Microsoft-IIS/10.0"
+												},
+												{
+													"key": "X-Powered-By",
+													"value": "ASP.NET"
+												},
+												{
+													"key": "Date",
+													"value": "Tue, 01 Apr 2025 18:50:54 GMT"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"userId\": 1,\n    \"userName\": \"Cristhian\",\n    \"email\": \"prueba@prueba.com\",\n    \"password\": \"qwerty1234\",\n    \"roles\": [\n        {\n            \"roleId\": 1,\n            \"rolName\": \"Admin\"\n        },\n        {\n            \"roleId\": 2,\n            \"rolName\": \"Supervisor\"\n        },\n        {\n            \"roleId\": 3,\n            \"rolName\": \"Cashier\"\n        },\n        {\n            \"roleId\": 4,\n            \"rolName\": \"Viewer\"\n        }\n    ]\n}"
+										},
+										{
+											"name": "400 Bad Request User",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"userName\": \"\",\n  \"email\": \"prueba@prueba.com\",\n  \"passwordHash\": \"qwerty1234\",\n  \"roles\": [\"Admin\", \"Supervisor\", \"Cashier\", \"Viewer\"]\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/User/CreateUser",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"User",
+														"CreateUser"
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/problem+json; charset=utf-8"
+												},
+												{
+													"key": "Server",
+													"value": "Microsoft-IIS/10.0"
+												},
+												{
+													"key": "X-Powered-By",
+													"value": "ASP.NET"
+												},
+												{
+													"key": "Date",
+													"value": "Tue, 01 Apr 2025 18:53:16 GMT"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\n    \"title\": \"One or more validation errors occurred.\",\n    \"status\": 400,\n    \"errors\": {\n        \"UserName\": [\n            \"The UserName field is required.\"\n        ]\n    },\n    \"traceId\": \"00-a169a8096eacd02b16ed959e28a5bad9-4b3eb325dd0b61a7-00\"\n}"
+										},
+										{
+											"name": "400 Bad Request Rol",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"userName\": \"Cristhian\",\n  \"email\": \"prueba@prueba.com\",\n  \"passwordHash\": \"qwerty1234\",\n  \"roles\": [\"Admin33\"]\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/User/CreateUser",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"User",
+														"CreateUser"
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Server",
+													"value": "Microsoft-IIS/10.0"
+												},
+												{
+													"key": "X-Powered-By",
+													"value": "ASP.NET"
+												},
+												{
+													"key": "Date",
+													"value": "Tue, 01 Apr 2025 18:54:01 GMT"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"message\": \"El rol 'Admin33' no es válido.\"\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "UpdateUser",
+							"item": [
+								{
+									"name": "/api/User/UpdateUser",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"userId\": 0,\n  \"userName\": \"string\",\n  \"email\": \"string\",\n  \"passwordHash\": \"string\",\n  \"roles\": [\n    \"string\"\n  ]\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/User/UpdateUser",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"User",
+												"UpdateUser"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "400 Bad Request",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"userId\": 1,\n  \"userName\": \"Andres\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/User/UpdateUser",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"User",
+														"UpdateUser"
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/problem+json; charset=utf-8"
+												},
+												{
+													"key": "Server",
+													"value": "Microsoft-IIS/10.0"
+												},
+												{
+													"key": "X-Powered-By",
+													"value": "ASP.NET"
+												},
+												{
+													"key": "Date",
+													"value": "Tue, 01 Apr 2025 18:56:36 GMT"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\n    \"title\": \"One or more validation errors occurred.\",\n    \"status\": 400,\n    \"errors\": {\n        \"Email\": [\n            \"The Email field is required.\"\n        ],\n        \"Roles\": [\n            \"The Roles field is required.\"\n        ],\n        \"PasswordHash\": [\n            \"The PasswordHash field is required.\"\n        ]\n    },\n    \"traceId\": \"00-6d19bc1cdf1a9fa2d28323974d40ac4b-6867c78f26ce16ed-00\"\n}"
+										},
+										{
+											"name": "200 OK",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"userId\": 1,\n  \"userName\": \"Andres\",\n  \"email\": \"prueba2\",\n  \"passwordHash\": \"asdfg123\",\n  \"roles\": [\n    \"Admin\"\n  ]\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/User/UpdateUser",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"User",
+														"UpdateUser"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Server",
+													"value": "Microsoft-IIS/10.0"
+												},
+												{
+													"key": "X-Powered-By",
+													"value": "ASP.NET"
+												},
+												{
+													"key": "Date",
+													"value": "Tue, 01 Apr 2025 18:58:06 GMT"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"userId\": 1,\n    \"userName\": \"Andres\",\n    \"email\": \"prueba2\",\n    \"password\": \"asdfg123\",\n    \"roles\": [\n        {\n            \"roleId\": 1,\n            \"rolName\": \"Admin\"\n        }\n    ]\n}"
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": ""
+		}
+	]
+}

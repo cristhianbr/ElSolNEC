@@ -1,0 +1,38 @@
+Si falla la creación del clouster en la instalación, continuar y hacer lo siguiente:
+
+PostgreSQL es sencible con las mayusculas y minusculas, no soporta caracteres especiales, se recomienda la instalación en una ruta 
+que no contenga espacios en su nombre.
+
+Se ingresa al directorio bin del directorio de PostgreSQL
+cd "ruta/al/directorio/de/bin"
+cd "C:\PostgreSQL\17\bin"
+
+Se crea el clouster manualmente usando el comando initdb, abrimos la consola de CMD como usuario normal y ejecutamos lo siguiente:
+initdb -D "ruta/al/directorio/de/datos"
+initdb -D "C:\PostgreSQL\17\data"
+
+Cuando se creen los archivos y directorios, ingresamos al archivo "postgresql.conf" y descomentamos las siguientes configuraciones
+------------------------------------------------------------------------
+listen_addresses = 'localhost'		# what IP address(es) to listen on;
+					# comma-separated list of addresses;
+					# defaults to 'localhost'; use '*' for all
+					# (change requires restart)
+port = 5432
+------------------------------------------------------------------------
+eso es para que se pueda conectar al localhost en el puerto 5432
+
+Volviendo al CMD en el directorio bin usamos el pg_ctl como usuario administrador para crear el servicio que ejecutara el servidor
+pg_ctl register -N "NombreServicio" -D "ruta/al/directorio/de/datos"
+pg_ctl register -N "PostgreSQL17" -D "C:\PostgreSQL\17\data"
+
+Como hubo un error en la creación del clouster no se creo el superusuario para administrar el motor, este se crea de la siguiente manera,
+en el directorio bin se ejecuta el siguiente comando
+createuser --interactive --pwprompt
+-------------------------------------------------------------------------------------------------------------------
+Ingresa el nombre del nuevo rol: Aquí debes ingresar el nombre que deseas para tu superusuario.
+¿Será el nuevo rol un superusuario? (s/n): Responde s para que el nuevo usuario tenga privilegios de superusuario.
+Contraseña: Ingresa y confirma la contraseña para el nuevo superusuario.
+-------------------------------------------------------------------------------------------------------------------
+
+Con este usuario ya desde pgAdmin se crea el servidor en localhost con el superusuario que se acabo de crear, igualmente funciona
+con el usuario administrador de la maquina, pero es preferible crear otro usuario para el manejo del motor
