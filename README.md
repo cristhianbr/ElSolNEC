@@ -91,6 +91,6 @@ Con lo anterior ya deberia de poder ver la aplicacion funcionando correctamente.
 
 1. Se proporciona una colección de Postman, para que sea ejecutado desde el equipo donde se ponga en funcionamiento la aplicación. Tener en cuenta que la colección de Postman y cada uno de sus Request estan enumerados y ordenados, los cuales se deben de ejecutar en ese orden, para poder validar el funcionamiento de la aplicación.
 
-Las colecciones de Postman, se encuentran en la carpeta `ElSolNEC/POSTMAN`, las cuales pueden ser importadas en Postman para probar la aplicación.
+La colección de Postman, se encuentran en la carpeta `ElSolNEC/POSTMAN`, la cual puede ser importada en Postman para probar la aplicación.
 
 ---
